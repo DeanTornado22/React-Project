@@ -1,21 +1,25 @@
 import logo from "./logo.svg";
 import React from "react";
 import "./App.css";
+import { Header } from "./Components/Header.js";
+import { SearchBar } from "./Components/SearchBar.js";
+import { Emoji } from "./Components/Emoji.js";
+import { emojiList } from "./Sources/emojiList.js";
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { name: "Dean Tornado" };
-    this.state.a = "Yo what up!";
-  }
-  render() {
-    return (
-      <div>
-        <p>Hello {JSON(this.state)}</p>
-        <p>Hello 2 {this.state.a}</p>
-      </div>
+function App() {
+  let eList = [];
+  for (let i = 0; i < 20; i++) {
+    eList.push(
+      <Emoji title={emojiList[i].title} symbol={emojiList[i].symbol} />
     );
   }
+  return (
+    <React.Fragment>
+      <Header />
+      <SearchBar />
+      {eList}
+    </React.Fragment>
+  );
 }
 
 export default App;
