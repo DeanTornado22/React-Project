@@ -1,15 +1,17 @@
 function rolls(arrayDiceRoll) {
   var result = 0;
   for (let i = 0; i < arrayDiceRoll.length; i++) {
-    if (arrayDiceRoll[i] == 1) {
-      result += arrayDiceRoll[i];
-      i += 1;
-      continue;
-    } else if (arrayDiceRoll[i] == 6) {
-      result += arrayDiceRoll[i];
-      i += 1;
-      result += arrayDiceRoll[i] * 2;
-      continue;
+    if (i > 0) {
+      if (arrayDiceRoll[i - 1] == 1) {
+        result += 0;
+        continue;
+      } else if (arrayDiceRoll[i - 1] == 6) {
+        result += arrayDiceRoll[i] * 2;
+        continue;
+      } else {
+        result += arrayDiceRoll[i];
+        continue;
+      }
     } else {
       result += arrayDiceRoll[i];
     }
