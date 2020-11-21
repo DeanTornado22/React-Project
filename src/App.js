@@ -1,24 +1,25 @@
-import logo from "./logo.svg";
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
-import { Header } from "./Components/Header.js";
-import { SearchBar } from "./Components/SearchBar.js";
-import { Emoji } from "./Components/Emoji.js";
-import { emojiList } from "./Sources/emojiList.js";
+//Importing Components
+import Form from "./components/Form";
+import TodoList from "./components/TodoList";
 
 function App() {
-  let eList = [];
-  for (let i = 0; i < 20; i++) {
-    eList.push(
-      <Emoji title={emojiList[i].title} symbol={emojiList[i].symbol} />
-    );
-  }
+  const [inputText, setInputText] = useState("");
+  const [todos, setTodo] = useState([]);
   return (
-    <React.Fragment>
-      <Header />
-      <SearchBar />
-      {eList}
-    </React.Fragment>
+    <div className="App">
+      <header>
+        <h1>Todo List </h1>
+      </header>
+      <Form
+        inputText={inputText}
+        setInputText={setInputText}
+        todos={todos}
+        setTodo={setTodo}
+      />
+      <TodoList setTodo={setTodo} todos={todos} />
+    </div>
   );
 }
 
