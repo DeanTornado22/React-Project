@@ -3,10 +3,6 @@ import "../Form.css";
 
 const Form = ({ setInputText, todos, setTodo, inputText, setStatus }) => {
   //Javascript code in here
-  const inputTextHandler = (e) => {
-    console.log(e.target.value);
-    setInputText(e.target.value);
-  };
   const submitTodoHandler = (e) => {
     e.preventDefault();
     setTodo([
@@ -15,29 +11,41 @@ const Form = ({ setInputText, todos, setTodo, inputText, setStatus }) => {
     ]);
     setInputText = "";
   };
-
   const statusHandler = (e) => {
     setStatus(e.target.value);
   };
+  const inputTextHandler = (e) => {
+    console.log(e.target.value);
+    setInputText(e.target.value);
+  };
   return (
-    <form>
-      <input
-        value={inputText}
-        onChange={inputTextHandler}
-        type="text"
-        className="todo-input"
-      />
-      <button className="todo-button" type="submit" onClick={submitTodoHandler}>
-        <i className="fas fa-plus-square"></i>
-      </button>
-      <div onChange={statusHandler} className="select">
-        <select name="todos" className="filter-todo">
-          <option value="all">All</option>
-          <option value="completed">Completed</option>
-          <option value="uncompleted">Uncompleted</option>
-        </select>
-      </div>
-    </form>
+    <div>
+      <header>
+        <h1>Todo List </h1>
+      </header>
+      <form>
+        <input
+          value={inputText}
+          onChange={inputTextHandler}
+          type="text"
+          className="todo-input"
+        />
+        <button
+          className="todo-button"
+          type="submit"
+          onClick={submitTodoHandler}
+        >
+          <i className="fas fa-plus-square"></i>
+        </button>
+        <div onChange={statusHandler} className="select">
+          <select name="todos" className="filter-todo">
+            <option value="all">All</option>
+            <option value="completed">Completed</option>
+            <option value="uncompleted">Uncompleted</option>
+          </select>
+        </div>
+      </form>
+    </div>
   );
 };
 

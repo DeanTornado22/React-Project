@@ -5,9 +5,10 @@
   font-family: "Nunito", sans-serif;
 }
 
-button {
+.LoginButton {
   border: none;
   outline: none;
+  width: 100%;
   padding: 15px 0;
   color: #fff;
   font-size: 16px;

@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import fire from "../fire";
 import Form from "../components/Form";
+import TodoList from "../components/TodoList";
 
 const Hero = ({
   handleLogOut,
@@ -10,6 +11,8 @@ const Hero = ({
   todos,
   setTodo,
   setStatus,
+  filterTodos,
+  setFilterTodos,
 }) => {
   var db = fire.firestore();
   useEffect(() => {
@@ -27,7 +30,10 @@ const Hero = ({
     <section className="hero">
       <nav>
         <h2>Welcome</h2>
-        <button onClick={handleLogOut}> Logout</button>
+        <button className="LoginButton" onClick={handleLogOut}>
+          {" "}
+          Logout
+        </button>
       </nav>
       <Form
         inputText={inputText}
@@ -36,6 +42,7 @@ const Hero = ({
         setTodo={setTodo}
         setStatus={setStatus}
       />
+      <TodoList setTodo={setTodo} todos={todos} filterTodos={filterTodos} />
     </section>
   );
 };

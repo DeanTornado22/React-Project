@@ -108,7 +108,6 @@ function App() {
   const handleLogOut = () => {
     fire.auth().signOut();
   };
-
   const authListener = () => {
     fire.auth().onAuthStateChanged((user) => {
       if (user) {
@@ -134,6 +133,8 @@ function App() {
           todos={todos}
           setTodo={setTodo}
           setStatus={setStatus}
+          filterTodos={filterTodos}
+          setFilterTodos={setFilterTodos}
         />
       ) : (
         <Login
