@@ -1,12 +1,19 @@
 import React, { useEffect } from "react";
-import Result from "../components/Result";
+import Result from "./Result";
 
 const ResultList = ({ listResult }) => {
   return (
-    <div className="todo-container">
-      <ul className="todo-list">
+    <div className="wrapper-book">
+      <ul className="books">
         {listResult.map((result, ind) => (
-          <Result {...result} key={ind} />
+          <Result
+            imgsrc={result.imgsrc}
+            title={result.title}
+            author={result.author}
+            publisher={result.publisher}
+            publishDate={result.publishDate}
+            key={ind}
+          />
         ))}
       </ul>
     </div>
