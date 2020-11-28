@@ -1,6 +1,13 @@
 import React from "react";
 
-const Result = ({ imgsrc, title, author, publisher, publishDate }) => {
+const Result = ({
+  imgsrc,
+  title,
+  contactCity,
+  contactName,
+  contactUrl,
+  summary,
+}) => {
   return (
     <div className="book">
       <div className="book__title">
@@ -11,16 +18,20 @@ const Result = ({ imgsrc, title, author, publisher, publishDate }) => {
       </div>
       <div className="book__desc">
         <div className="book__field">
-          <strong>Author:</strong>
-          {author}
+          <strong>Contact Name:</strong>
+          {contactName}
         </div>
         <div className="book__field">
-          <strong>Publisher: </strong>
-          {publisher}
+          <strong>Contact City: </strong>
+          {contactCity}
         </div>
         <div className="book__field">
-          <strong>Published: </strong>
-          {publishDate}
+          <strong>Contact Url: </strong>
+          {contactUrl}
+        </div>
+        <div className="book__field">
+          <strong>Summary: </strong>
+          {summary}
         </div>
       </div>
     </div>

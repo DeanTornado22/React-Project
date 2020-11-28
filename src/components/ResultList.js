@@ -5,16 +5,22 @@ const ResultList = ({ listResult }) => {
   return (
     <div className="wrapper-book">
       <ul className="books">
-        {listResult.map((result, ind) => (
-          <Result
-            imgsrc={result.imgsrc}
-            title={result.title}
-            author={result.author}
-            publisher={result.publisher}
-            publishDate={result.publishDate}
-            key={ind}
-          />
-        ))}
+        {listResult.map(
+          (result) => (
+            console.log(result),
+            (
+              <Result
+                imgsrc={result.image}
+                title={result.title}
+                contactCity={result.contactCity}
+                contactName={result.contactName}
+                contactUrl={result.contactUrl}
+                summary={result.summary}
+                key={result.ind}
+              />
+            )
+          )
+        )}
       </ul>
     </div>
   );
